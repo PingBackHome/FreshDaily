@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IT2GROW NEW TICKETS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #0bda51;
+            font-size: 32px;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #0bda51;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+        
+        .ticket-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .ticket-table th {
+            background-color: #eee;
+            color: #333;
+            font-weight: bold;
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .ticket-table td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .summary {
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        
+        .summary h2 {
+            color: #0bda51;
+            font-size: 20px;
+            margin-top: 0;
+        }
+        
+        .summary p {
+            margin: 10px 0;
+        }
+
+        .ascii-art {
+            font-family: monospace;
+            white-space: pre;
+            color: #0bda51cc;
+            font-size: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+    <script>
+        setTimeout(function(){
+            location.reload();
+        }, 10000); // Ververs de pagina elke 10 seconden (10000 milliseconden)
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="ascii-art">
+  _____ _______ ___   _____ _____   ______          __  _          
+ |_   _|__   __|__ \ / ____|  __ \ / __ \ \        / / | |         
+   | |    | |     ) | |  __| |__) | |  | \ \  /\  / /  | |____   __
+   | |    | |    / /| | |_ |  _  /| |  | |\ \/  \/ /   | '_ \ \ / /
+  _| |_   | |   / /_| |__| | | \ \| |__| | \  /\  /    | |_) \ V / 
+ |_____|  |_|  |____|\_____|_|  \_\\____/   \/  \/     |_.__/ \_/  
+                                                                   
+                                                                   
+        </div>
+        <h2>Laatste 10 nieuwe tickets</h2>
+        <table class="ticket-table">
+            <tr>
+                <th>Ticket ID</th>
+                <th>Requester Email</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Created At</th>
+                <th>Agent</th>
+            </tr>
+            {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.id }}</td>
+                    <td>{{ ticket.requester_email }}</td>
+                    <td>{{ ticket.subject }}</td>
+                    <td>{{ ticket.status }}</td>
+                    <td>
+                        {% if ticket.priority_text == 'Low' %}
+                            Low
+                        {% elif ticket.priority_text == 'Medium' %}
+                            Medium
+                        {% elif ticket.priority_text == 'High' %}
+                            High
+                        {% else %}
+                            Onbekend
+                        {% endif %}
+                    <td>{{ ticket.created_at_formatted }}</td>
+                    <td>{{ ticket.agent_name }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>Total Tickets: {{ total_tickets }}</p>
+            <p>Agent with Most Tickets: {{ agent_with_most_tickets }}</p>
+            <p>Available Agents: {{ available_agents }}</p>
+            <p> -------------------------------------------</p>
+            <p> Version 1.0 made by TZ </p>
+            <p> -------------------------------------------</p>
+        </div>
+    </div>
+</body>
+</html>
