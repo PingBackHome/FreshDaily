@@ -26,9 +26,10 @@ To run the FreshDaily Dashboard application locally, follow these steps:
 1. Clone the repository to your local environment.
 2. Ensure that Python 3 is installed on your system.
 3. Install the required Python packages using `pip install -r requirements.txt`.
-4. Verify the database configuration and adjust the paths if necessary in `dashboard.py`.
-5. Run the application using the command `python dashboard.py`.
-6. Open a web browser and navigate to `http://localhost:5000` to view the FreshDaily Dashboard.
+4. Start `db_worker.py` from /scripts/db_scripts
+5. Verify the database configuration and adjust the paths if necessary in `dashboard.py`.
+6. Run the application using the command `python dashboard.py`.
+7. Open a web browser and navigate to `http://localhost:5000` to view the FreshDaily Dashboard.
 
 ## Contributing
 
