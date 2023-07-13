@@ -1,4 +1,4 @@
-# FreshDaily Dashboard
+# FreshDaily Dashboard for Freshdesk
 
 The FreshDaily Dashboard is a web application developed to display ticket information and provide a summary of agents with the most tickets. It offers an overview of the 10 latest tickets, including details such as ticket ID, subject, status, priority, assigned agent, and creation date.
 
