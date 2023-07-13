@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FreshDaily Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1 class="ascii-art">
+        <pre>
+            
+██╗████████╗██████╗  ██████╗ ██████╗  ██████╗ ██╗    ██╗    ████████╗██╗ ██████╗██╗  ██╗███████╗████████╗███████╗
+██║╚══██╔══╝╚════██╗██╔════╝ ██╔══██╗██╔═══██╗██║    ██║    ╚══██╔══╝██║██╔════╝██║ ██╔╝██╔════╝╚══██╔══╝██╔════╝
+██║   ██║    █████╔╝██║  ███╗██████╔╝██║   ██║██║ █╗ ██║       ██║   ██║██║     █████╔╝ █████╗     ██║   ███████╗
+██║   ██║   ██╔═══╝ ██║   ██║██╔══██╗██║   ██║██║███╗██║       ██║   ██║██║     ██╔═██╗ ██╔══╝     ██║   ╚════██║
+██║   ██║   ███████╗╚██████╔╝██║  ██║╚██████╔╝╚███╔███╔╝       ██║   ██║╚██████╗██║  ██╗███████╗   ██║   ███████║
+╚═╝   ╚═╝   ╚══════╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝        ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝
+                                                                                                                 
+
+
+        </pre>
+    </h1>
+
+    <div class="clock" id="clock"></div>
+
+
+    <h2>10 nieuwste tickets</h2>
+    <table id="tickets-table">
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Prioriteit</th>
+                <th>Agent</th>
+                <th>Datum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Inhoud wordt dynamisch bijgewerkt -->
+        </tbody>
+    </table>
+
+    <div class="summary">
+        <h2>Samenvatting van agents met meeste tickets</h2>
+        <ul>
+            {% for agent, count in agent_summary.items() %}
+            <li>{{ agent }}: {{ count }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
